@@ -3,23 +3,31 @@
 {
   programs.vesktop.enable = true;
 
-  # Минимальные пакеты для тестирования
   home.packages = with pkgs; [
 
-    # Базовые утилиты
-    neovim wget curl git btop microfetch tmux
+    # Base Utils
+    neovim wget curl git btop microfetch fastfetch tmux
 
-    # Редакторы кода
-    vscode-fhs
+    # Code editor
+    unstable.vscode-fhs
+    unstable.zed-editor
 
-    # Терминал
+    # Massenger
+    telegram-desktop
+    vesktop
+
+    # Terminal
+    alacritty
     wezterm
 
-    # Браузер
+    # Browser
+    librewolf
+    brave
 
+    # Video
+    unstable.kdePackages.kdenlive
 
     # Git утилиты
-
     jujutsu
     lazyjj
 
