@@ -27,7 +27,9 @@ in
     librewolf brave
 
     # Video
+    unstable.audacity
     vlc
+    mpv
     unstable.kdePackages.kdenlive
 
     # Git утилиты

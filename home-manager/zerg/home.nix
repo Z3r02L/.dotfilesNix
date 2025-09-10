@@ -16,6 +16,7 @@ in
   imports = [
     ./packages.nix
     ./settings/librewolf.nix
+    # ./settings/zsh.nix
   ];
 
   # Системная переменная для браузера по умолчанию (пример для xdg)
