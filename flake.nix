@@ -69,6 +69,8 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
       inherit system;
       config.allowUnfree = true;
 
+    # unstable-pkgs =
+
       overlays = [
         (final: prev: {
           unstable = import nixpkgs-unstable {
@@ -89,6 +91,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
     nixosConfigurations = {
       zerg = nixpkgs.lib.nixosSystem {
         inherit system;
+        inherit pkgs;
         modules = [
           ./hosts/zerg/default.nix
           ./roles/workstation.nix
@@ -99,8 +102,8 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
           # ./modules/core/nix.nix # Оптимизации Nix
         ];
         specialArgs = {
-          inherit pkgs;
-          pkgs-unstable = pkgs.unstable;
+          inherit (nixpkgs) lib;
+          inherit system;
         };
       };
     };
@@ -113,7 +116,6 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
          ./home-manager/zerg/home.nix
        ];
        extraSpecialArgs = {
-         inherit pkgs;
          inherit nix-ai-tools;
        };
      };

@@ -1,19 +1,29 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
+{ config, lib, pkgs, ... }:
 let
-  unstable = pkgs-unstable;
+  unstable = pkgs.unstable;
 in
 {
   # Programs
-  programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
 
   environment.systemPackages = with pkgs; [
+    xdg-utils
     amnezia-vpn
     vim
+    neovim
     wget
     curl
     git
-  ] ++ [
+    brave
+
     unstable.zed-editor-fhs
   ];
+
+  # system.activationScripts.setDefaultBrowser.text = ''
+  #     #!/bin/sh
+  #     xdg-settings set default-web-browser brave.desktop || true
+  #     xdg-mime default brave.desktop x-scheme-handler/http
+  #     xdg-mime default brave.desktop x-scheme-handler/https
+  #     xdg-mime default brave.desktop text/html
+  # '';
 }

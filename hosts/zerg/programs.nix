@@ -1,12 +1,14 @@
-{ config, pkgs, pkgs-unstable, nix-ai-tools, ... }:
+{ config, pkgs, nix-ai-tools, ... }:
 let
   # pkgs.system = "x86_64-linux";
-  unstable = pkgs-unstable;
+  unstable = pkgs.unstable;
 in
 {
   imports = [
 
   ];
+
+  programs.xdg.enable = true;
 
   packages = with pkgs; [
     vim                # важный редактор для конфигурации

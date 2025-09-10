@@ -8,8 +8,6 @@
     librewolf
 
     telegram-desktop
-
-  ] ++ [
 		unstable.zed-editor-fhs
 	];
 }

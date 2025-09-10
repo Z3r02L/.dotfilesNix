@@ -1,6 +1,7 @@
-{ config, pkgs, pkgs-unstable, nix-ai-tools, ... }:
+{ config, pkgs, nix-ai-tools, ... }:
 let
   aiTools = nix-ai-tools.packages.${pkgs.system};
+  unstable = pkgs.unstable;
 in
 {
   # programs.vesktop.enable = true;
@@ -46,6 +47,7 @@ in
     bash.enable = true;
     zsh.enable = true;
     fish.enable = true;
+    # xdg.enable = true;
 
     # Добавить другие программы по необходимости
   };

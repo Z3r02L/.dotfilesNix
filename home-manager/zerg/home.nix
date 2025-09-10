@@ -1,7 +1,7 @@
-{ config, pkgs, pkgs-unstable, nix-ai-tools, ... }:
+{ config, pkgs, nix-ai-tools, ... }:
 
 let
-  unstable = pkgs-unstable;  # без кавычек
+  unstable = pkgs.unstable;  # без кавычек
 in
 {
   home = {
@@ -15,7 +15,12 @@ in
 
   imports = [
     ./packages.nix
+    ./settings/librewolf.nix
   ];
+
+  # Системная переменная для браузера по умолчанию (пример для xdg)
+  # home.sessionVariables.BROWSER = "brave";
+  # home.sessionVariables.XDG_DEFAULT_WEB_BROWSER = "brave.desktop";
 
   # Синхронизация файлов
   # home.file.".config/".source = ./config;
