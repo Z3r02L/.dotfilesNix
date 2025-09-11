@@ -5,6 +5,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    omarchy-nix = {
+      url = "github:henrysipp/omarchy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +68,7 @@
     };
   };
 
-outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools, ... }:
+outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, omarchy-nix, stylix, nix-ai-tools, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -100,6 +106,46 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
           ./modules/development/default.nix
           ./modules/security/default.nix
           # ./modules/core/nix.nix # Оптимизации Nix
+          
+          # Конфигурация omarchy
+          {
+            omarchy = {
+              full_name = "Zerg User";
+              email_address = "zerg@example.com";
+              theme = "tokyo-night";
+              # Вы можете изменить тему на одну из следующих:
+              # "kanagawa", "everforest", "catppuccin", "nord", "gruvbox", "gruvbox-light"
+              # Или использовать сгенерированную тему:
+              # theme = "generated_dark"; # или "generated_light"
+              # theme_overrides = {
+              #   wallpaper_path = ./path/to/your/wallpaper.png;
+              # };
+              
+              # Дополнительные параметры настройки
+              primary_font = "Liberation Sans 11";
+              scale = 2; # Масштаб отображения (1 для 1x дисплеев, 2 для 2x дисплеев)
+              
+              # Настройка мониторов (при необходимости)
+              # monitors = [
+              #   "DP-1,1920x1080@60,0x0,1"
+              #   "HDMI-1,1920x1080@60,1920x0,1"
+              # ];
+              
+              # Настройка быстрых клавиш для запуска приложений
+              # quick_app_bindings = [
+              #   "SUPER, return, exec, $terminal"
+              #   "SUPER, F, exec, $fileManager"
+              #   "SUPER, B, exec, $browser"
+              #   "SUPER, N, exec, $terminal -e nvim"
+              # ];
+              
+              # Исключение пакетов из стандартной установки (при необходимости)
+              # exclude_packages = [ pkgs.some-package ];
+            };
+          }
+          
+          # Добавляем модуль omarchy-nix
+          omarchy-nix.nixosModules.default
         ];
         specialArgs = {
           inherit (nixpkgs) lib;
@@ -114,10 +160,13 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
        pkgs = pkgs;
        modules = [
          ./home-manager/zerg/home.nix
+         # Добавляем модуль omarchy-nix для home-manager
+         omarchy-nix.homeManagerModules.default
        ];
        extraSpecialArgs = {
          inherit nix-ai-tools;
          inherit self;
+         inherit omarchy-nix;
        };
      };
     };
