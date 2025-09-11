@@ -8,8 +8,9 @@ in
 
   home.packages = with pkgs; [
     # Base Utils
-    neovim wget curl git btop tmux
+    neovim wget curl git btop tmux yazi
     microfetch fastfetch
+    starship
 
     # Code editor
     neovim
@@ -40,6 +41,7 @@ in
     aiTools.opencode
     aiTools.qwen-code
     aiTools.gemini-cli
+    aiTools.claude-code
     aiTools.claude-code-router
     aiTools.crush
   ];

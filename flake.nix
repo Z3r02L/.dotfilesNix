@@ -117,6 +117,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
        ];
        extraSpecialArgs = {
          inherit nix-ai-tools;
+         inherit self;
        };
      };
     };

@@ -7,16 +7,19 @@ in
     isNormalUser = true;
     home = "/home/zerg";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+    # ignoreShellProgramCheck = true;
 
-	#  packages = with pkgs; [
-  #       vim # Do not forget to add an editor to edit configuration.nix! The Nano e>
-  #       wget
-  #       curl
-  #       git lazygit
+	 packages = with pkgs; [
+        zsh
+        vim # Do not forget to add an editor to edit configuration.nix! The Nano e>
+        wget
+        curl
+        git lazygit
 
-  #       chromium
-  #       brave
-  #       librewolf
-  # };
+        chromium
+        brave
+        librewolf
+  ];
   };
 }

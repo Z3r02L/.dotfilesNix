@@ -1,10 +1,10 @@
-# home-manager/zerg/settings/zsh.nix
+# shells/zsh.nix
 { config, pkgs, ... }:
 
 {
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh"; # Указываем директорию для конфигов Zsh
+    # dotDir = ".config/zsh"; # Указываем директорию для конфигов Zsh
 
     # Базовые настройки Zsh
     shellAliases = {
@@ -29,7 +29,7 @@
 
     # История команд
     history = {
-      expireDuplicates = true;
+      ignoreSpace = true;
       extended = true;
       share = true;
       size = 10000;
@@ -37,30 +37,31 @@
 
     # Плагины (примеры)
     plugins = [
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-syntax-highlighting";
-          rev = "0.7.1";
-          sha256 = "sha256-R4X1wIu87YhHh3w9n9r5/vX/L50Q7u2w+1+0k6y0g/g="; # Обновите SHA256
-        };
-      }
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-autosuggestions";
-          rev = "v0.7.0";
-          sha256 = "sha256-Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q="; # Обновите SHA256
-        };
-      }
+      # {
+      #   name = "zsh-syntax-highlighting";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "zsh-users";
+      #     repo = "zsh-syntax-highlighting";
+      #     rev = "0.7.1";
+      #     sha256 = "sha256-R4X1wIu87YhHh3w9n9r5/vX/L50Q7u2w+1+0k6y0g/g="; # Обновите SHA256
+      #   };
+      # }
+      # {
+      #   name = "zsh-autosuggestions";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "zsh-users";
+      #     repo = "zsh-autosuggestions";
+      #     rev = "v0.7.0";
+      #     sha256 = "sha256-Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q3Q="; # Обновите SHA256
+      #   };
+      # }
     ];
 
     # Инициализация Zsh
-    initExtra = ''
+    initContent = ''
       # Пользовательские настройки Zsh
       export EDITOR="nvim"
+      export GOOGLE_CLOUD_PROJECT="88268831803"
       # source ~/.config/zsh/.zshrc # Если у вас есть отдельный .zshrc
     '';
   };
