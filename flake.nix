@@ -146,6 +146,9 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, omarchy-nix, stylix, 
           
           # Добавляем модуль omarchy-nix
           omarchy-nix.nixosModules.default
+          
+          # Добавляем модуль для отключения настройки nixpkgs в omarchy-nix
+          ./modules/disable-omarchy-nixpkgs.nix
         ];
         specialArgs = {
           inherit (nixpkgs) lib;
