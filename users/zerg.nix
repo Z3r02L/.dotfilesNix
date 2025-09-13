@@ -18,6 +18,7 @@ in
         git lazygit
 
         chromium
+        ungoogled-chromium
         brave
         librewolf
   ];

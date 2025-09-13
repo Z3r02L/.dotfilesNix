@@ -14,6 +14,7 @@ in
 
     # Code editor
     neovim
+    # unstable.sublime4
     unstable.zed-editor-fhs
     unstable.vscode-fhs
     unstable.kiro-fhs
