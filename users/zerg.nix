@@ -17,8 +17,6 @@ in
         curl
         git lazygit
 
-        chromium
-        ungoogled-chromium
         brave
         librewolf
   ];
