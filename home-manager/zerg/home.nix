@@ -4,6 +4,8 @@ let
   unstable = pkgs.unstable;  # без кавычек
 in
 {
+  # home.file.".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
+
   home = {
     username = "zerg";
     homeDirectory = "/home/zerg";
@@ -16,6 +18,8 @@ in
   imports = [
     ./packages.nix
     ./settings/librewolf.nix
+    
+    ./../../shells/default.nix
   ];
 
   # Системная переменная для браузера по умолчанию (пример для xdg)

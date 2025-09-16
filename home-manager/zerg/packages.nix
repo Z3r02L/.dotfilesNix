@@ -8,12 +8,12 @@ in
 
   home.packages = with pkgs; [
     # Base Utils
-    neovim wget curl git btop tmux yazi
+    unstable.neovim wget curl git btop tmux yazi unzip
     microfetch fastfetch
     starship
 
     # Code editor
-    neovim
+    unstable.neovim
     # unstable.sublime4
     unstable.zed-editor-fhs
     unstable.vscode-fhs

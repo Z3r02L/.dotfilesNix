@@ -10,7 +10,7 @@ in
     xdg-utils
     amnezia-vpn
     vim
-    neovim
+    unstable.neovim
     wget
     curl
     git

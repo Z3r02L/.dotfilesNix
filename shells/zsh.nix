@@ -63,6 +63,11 @@
       export EDITOR="nvim"
       export GOOGLE_CLOUD_PROJECT="88268831803"
       # source ~/.config/zsh/.zshrc # Если у вас есть отдельный .zshrc
+      export PNPM_HOME="/root/.local/share/pnpm"
+      case ":$PATH:" in
+        *":$PNPM_HOME:"*) ;;
+        *) export PATH="$PNPM_HOME:$PATH" ;;
+      esac
     '';
   };
 }
