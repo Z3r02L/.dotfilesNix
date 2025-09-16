@@ -3,6 +3,8 @@
     ../../modules/core/default.nix
     ../../roles/workstation.nix
     ../../users/zerg.nix
+    
+    ../../games/steam.nix
     # ../../home-manager/zerg/home.nix
 
     ./hardware-configuration.nix

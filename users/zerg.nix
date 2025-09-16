@@ -10,15 +10,15 @@ in
     shell = pkgs.zsh;
     # ignoreShellProgramCheck = true;
 
-	 packages = with pkgs; [
-        zsh
-        vim # Do not forget to add an editor to edit configuration.nix! The Nano e>
-        wget
-        curl
-        git lazygit
+	  packages = with pkgs; [
+      zsh
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano e>
+      wget
+      curl
+      git lazygit
 
-        brave
-        librewolf
-  ];
+      brave
+      librewolf
+    ];
   };
 }
