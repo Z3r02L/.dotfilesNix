@@ -9,7 +9,7 @@
               sudo nixos-rebuild switch --flake ~/.dotfilesNix/#zerg && \
               home-manager switch --flake ~/.dotfilesNix/#zerg
     ";
-    nrs = "nixos-rebuild switch -- flake ~/.dotfilesNix/#zerg";
+    nrs = "nixos-rebuild switch --flake ~/.dotfilesNix/#zerg";
     hms = "home-manager switch --flake ~/.dotfilesNix/#zerg";
 
     g = "git";
