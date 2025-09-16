@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, nix-ai-tools, ... }:
+{ config, pkgs, nix-ai-tools, ... }:
 let
   aiTools = nix-ai-tools.packages.${pkgs.system};
   # unstable = pkgs.unstable;
@@ -8,16 +8,16 @@ in
 
   home.packages = with pkgs; [
     # Base Utils
-    unstable.neovim wget curl git btop tmux yazi unzip
+    neovim wget curl git btop tmux yazi unzip
     microfetch fastfetch
     starship
 
     # Code editor
-    unstable.neovim
+    neovim
     # unstable.sublime4
-    unstable.zed-editor-fhs
-    unstable.vscode-fhs
-    unstable.kiro-fhs
+    zed-editor-fhs
+    vscode-fhs
+    kiro-fhs
 
     # Massenger
     telegram-desktop vesktop
@@ -30,10 +30,10 @@ in
     ungoogled-chromium
 
     # Video
-    unstable.audacity
+    audacity
     vlc
     mpv
-    unstable.kdePackages.kdenlive
+    kdePackages.kdenlive
 
     # Git утилиты
     git lazygit

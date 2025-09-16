@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 let
   # unstable = pkgs.unstable; # Already passed as special arg
 in
@@ -12,7 +12,7 @@ in
 
   # 1. Включаем окружение рабочего стола KDE Plasma 6
   # Plasma 6 уже доступна в стабильной версии NixOS
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
   
   # 2. Включаем оконный менеджер Hyprland
   # Этот модуль добавит опцию для запуска Hyprland на экране входа
@@ -28,7 +28,7 @@ in
 
   # 5. (Важно!) Устанавливаем терминал для Hyprland
   # По умолчанию конфиг Hyprland пытается запустить терминал kitty
-  environment.systemPackages = with unstable; [
+  environment.systemPackages = with pkgs; [
     kitty
     alacritty
   ];

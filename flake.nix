@@ -2,11 +2,12 @@
   description = "Модульная конфигурация NixOS с Roles и Standalone Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # /nixos-25.05 = stable
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # /nixos-unstable = stable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master"; # /release-25.05 = stable
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -62,23 +63,25 @@
     };
   };
 
-outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools, ... }:
+outputs = { self, nixpkgs, home-manager, stylix, nix-ai-tools, ... }: # nixpkgs-unstable,
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
 
-    # unstable-pkgs =
-
-      overlays = [
-        (final: prev: {
-          unstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        })
-      ];
+      # overlays = [
+      #   (final: prev: {
+      #     stable = import nixpkgs-unstable {
+      #       inherit system;
+      #       config.allowUnfree = true;
+      #     };
+      #     unstable = import nixpkgs-unstable {
+      #       inherit system;
+      #       config.allowUnfree = true;
+      #     };
+      #   })
+      # ];
     };
     # pkgsUnstable = import nixpkgs-unstable { system = "x86_64-linux"; };
 
@@ -109,7 +112,8 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
         specialArgs = {
           inherit (nixpkgs) lib;
           inherit system;
-          unstable = pkgs.unstable;
+          # stable = pkgs.stable;
+          # unstable = pkgs.unstable;
         };
       };
     };
@@ -124,7 +128,8 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
        extraSpecialArgs = {
          inherit nix-ai-tools;
          inherit self;
-         unstable = pkgs.unstable;
+        #  stable = pkgs.stable;
+        #  unstable = pkgs.unstable;
        };
      };
     };

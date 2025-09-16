@@ -5,6 +5,7 @@
     ./ssh.nix
     ./docker.nix
     ./postgresql.nix
+    ./zapret.nix
     # Добавить другие сервисы
   ];
 

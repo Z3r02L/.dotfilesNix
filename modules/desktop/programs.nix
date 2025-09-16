@@ -1,4 +1,4 @@
-{ config, lib, pkgs, unstable, ... }:
+{ config, lib, pkgs, ... }:
 let
   # unstable = pkgs.unstable;
 in
@@ -9,14 +9,16 @@ in
   environment.systemPackages = with pkgs; [
     xdg-utils
     amnezia-vpn
+    v2rayn
+    zapret
     vim
-    unstable.neovim
+    neovim
     wget
     curl
     git
     brave
 
-    unstable.zed-editor-fhs
+    zed-editor-fhs
   ];
 
   # system.activationScripts.setDefaultBrowser.text = ''

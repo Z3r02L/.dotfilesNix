@@ -1,7 +1,7 @@
 # modules/development/default.nix
 { config, pkgs, ... }:
 let
-  unstable = pkgs.unstable;
+  # unstable = pkgs.unstable;
 in
 {
   imports = [
@@ -15,12 +15,12 @@ in
     # Compilers
     gcc clang rustc go
     nodejs_22 nodejs_24
-    unstable.bun
+    bun
 
     # Package managers
     pnpm
-    unstable.uv
-    unstable.bun
+    uv
+    bun
 
     # Build tools
     cmake meson ninja
@@ -28,7 +28,7 @@ in
     # LSP и формatters
 
     nodePackages.typescript-language-server
-    unstable.biome
+    biome
     # node_modules.vscode-langservers-extracted
     rust-analyzer
     gopls

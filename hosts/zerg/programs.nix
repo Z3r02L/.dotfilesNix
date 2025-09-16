@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, nix-ai-tools, ... }:
+{ config, pkgs, nix-ai-tools, ... }:
 let
   # pkgs.system = "x86_64-linux";
   # unstable = pkgs.unstable;
@@ -18,7 +18,7 @@ in
     lazygit
     lazyjj
     yazi
-    unstable.zed-editor-fhs
+    zed-editor-fhs
     telegram-desktop
   ];
 }

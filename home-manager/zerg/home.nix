@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, nix-ai-tools, self, ... }:
+{ config, pkgs, nix-ai-tools, self, ... }:
 
 let
   # unstable = pkgs.unstable;  # без кавычек
