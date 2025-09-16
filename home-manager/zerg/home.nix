@@ -19,7 +19,7 @@ in
     ./packages.nix
     ./settings/librewolf.nix
     
-    ./../../shells/default.nix
+    ./settings/shells/default.nix
   ];
 
   # Системная переменная для браузера по умолчанию (пример для xdg)

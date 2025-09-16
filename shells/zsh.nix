@@ -9,7 +9,7 @@
     # Базовые настройки Zsh
     shellAliases = {
       ll = "ls -la";
-      update = "sudo nixos-rebuild switch --flake ~/.dotfilesNix/#zerg && home-manager switch --flake ~/.dotfilesNix/#zerg";
+      update = "nix flake update && sudo nixos-rebuild switch --flake ~/.dotfilesNix/#zerg && home-manager switch --flake ~/.dotfilesNix/#zerg";
       g = "git";
       gst = "git status";
       gco = "git checkout";
@@ -63,7 +63,9 @@
       export EDITOR="nvim"
       export GOOGLE_CLOUD_PROJECT="88268831803"
       # source ~/.config/zsh/.zshrc # Если у вас есть отдельный .zshrc
-      export PNPM_HOME="/root/.local/share/pnpm"
+      export PNPM_HOME="$HOME/.local/share/pnpm"
+      export PATH="$PNPM_HOME/bin:$PATH"
+
       case ":$PATH:" in
         *":$PNPM_HOME:"*) ;;
         *) export PATH="$PNPM_HOME:$PATH" ;;
