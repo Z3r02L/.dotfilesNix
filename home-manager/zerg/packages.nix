@@ -1,7 +1,7 @@
-{ config, pkgs, nix-ai-tools, ... }:
+{ config, pkgs, unstable, nix-ai-tools, ... }:
 let
   aiTools = nix-ai-tools.packages.${pkgs.system};
-  unstable = pkgs.unstable;
+  # unstable = pkgs.unstable;
 in
 {
   # programs.vesktop.enable = true;
@@ -27,6 +27,7 @@ in
 
     # Browser
     librewolf brave
+    ungoogled-chromium
 
     # Video
     unstable.audacity

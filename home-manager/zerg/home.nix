@@ -1,7 +1,7 @@
-{ config, pkgs, nix-ai-tools, self, ... }:
+{ config, pkgs, unstable, nix-ai-tools, self, ... }:
 
 let
-  unstable = pkgs.unstable;  # без кавычек
+  # unstable = pkgs.unstable;  # без кавычек
 in
 {
   # home.file.".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;

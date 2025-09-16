@@ -79,8 +79,13 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
           };
         })
       ];
-
     };
+    # pkgsUnstable = import nixpkgs-unstable { system = "x86_64-linux"; };
+
+    # pkgsUnstable = import nixpkgs-unstable {
+    #   inherit system;
+    #   config.allowUnfree = true;
+    # };
 
     # pkgs-unstable = import nixpkgs-unstable {
     #   inherit system;
@@ -104,6 +109,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
         specialArgs = {
           inherit (nixpkgs) lib;
           inherit system;
+          unstable = pkgs.unstable;
         };
       };
     };
@@ -118,6 +124,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nix-ai-tools,
        extraSpecialArgs = {
          inherit nix-ai-tools;
          inherit self;
+         unstable = pkgs.unstable;
        };
      };
     };

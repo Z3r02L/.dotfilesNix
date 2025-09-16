@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, unstable, ... }:
 let
-  unstable = pkgs.unstable;
+  # unstable = pkgs.unstable;
 in
 {
   # Programs

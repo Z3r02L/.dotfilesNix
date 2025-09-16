@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 let
-  unstable = pkgs.unstable;
+  # unstable = pkgs.unstable;
 in
 {
   users.users.zerg = {

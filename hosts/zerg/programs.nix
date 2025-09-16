@@ -1,7 +1,7 @@
-{ config, pkgs, nix-ai-tools, ... }:
+{ config, pkgs, unstable, nix-ai-tools, ... }:
 let
   # pkgs.system = "x86_64-linux";
-  unstable = pkgs.unstable;
+  # unstable = pkgs.unstable;
 in
 {
   imports = [
