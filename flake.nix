@@ -2,17 +2,42 @@
   description = "Модульная конфигурация NixOS с Roles и Standalone Home Manager";
 
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # /nixos-25.05 = stable
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # /nixos-unstable = stable
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05"; # /nixos-25.05 = stable
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    
+    nur.url = "github:nix-community/NUR";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master"; # /release-25.05 = stable
+      url = "github:nix-community/home-manager"; # /release-25.05 = stable
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix.url = "github:nix-community/stylix";
+    nix-colors.url = "github:misterio77/nix-colors";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,29 +51,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     prism = {
       url = "github:IogaMaster/prism";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     impermanence = {
       url = "github:nix-community/impermanence";
     };
 
-    stylix.url = "github:nix-community/stylix";
     ags.url = "github:Aylur/ags/v1";
     persist-retro.url = "github:Geometer1729/persist-retro";
 
@@ -102,10 +114,10 @@ outputs = { self, nixpkgs, home-manager, stylix, nix-ai-tools, ... }: # nixpkgs-
         inherit pkgs;
         modules = [
           ./hosts/zerg/default.nix
-          ./roles/workstation.nix
           ./modules/core/default.nix
           ./modules/desktop/programs.nix
           ./modules/development/default.nix
+          ./modules/roles/workstation.nix
           ./modules/security/default.nix
           # ./modules/core/nix.nix # Оптимизации Nix
         ];

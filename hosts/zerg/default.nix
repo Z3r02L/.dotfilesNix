@@ -1,10 +1,11 @@
 { config, pkgs, lib, ... }: {
   imports = [
+
+    ./users/zerg.nix
+
     ../../modules/core/default.nix
-    ../../roles/workstation.nix
-    ../../users/zerg.nix
-    
-    ../../games/steam.nix
+    ../../modules/roles/workstation.nix
+    ../../modules/games/default.nix
     # ../../home-manager/zerg/home.nix
 
     ./hardware-configuration.nix

@@ -12,4 +12,7 @@ in
   programs.zsh = zshConf;
   programs.bash = bashConf;
   # programs.fish = fishConf;
+  imports = [
+    ./config/starship.nix
+  ];
 }
