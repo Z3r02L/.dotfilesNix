@@ -7,18 +7,18 @@ in
   programs.amnezia-vpn.enable = true;
 
   environment.systemPackages = with pkgs; [
-    xdg-utils
-    amnezia-vpn
-    v2rayn
-    zapret
+
+    # Text editors
     vim
     neovim
+    zed-editor-fhs
+
     wget
     curl
     git
+
     brave
 
-    zed-editor-fhs
     # File managers
     # xfce.thunar
     # xfce.tumbler
@@ -36,15 +36,19 @@ in
 
     # Productivity
     libreoffice
+    obsidian
+    anki-bin
 
     # System utilities
+    xdg-utils
     brightnessctl
     libnotify
-    xdg-utils
     gammastep
 
     # VPN
-    mullvad-vpn
+    amnezia-vpn
+    v2rayn
+    zapret
 
     # Others
     qbittorrent
@@ -61,7 +65,6 @@ in
   # '';
 
   services.resolved.enable = true;
-  services.mullvad-vpn.enable = true;
   programs.kdeconnect.enable = true;
 
   systemd.user.services.kdeconnect = {

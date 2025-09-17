@@ -39,6 +39,8 @@
 
     # Git tools
     lazygit          # Git TUI
+    
+    
     jazyjj
 
     # Networking tools

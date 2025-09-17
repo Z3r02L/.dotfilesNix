@@ -2,6 +2,7 @@
   imports = [
 
     ./users/zerg.nix
+    ./performance.nix
 
     ../../modules/core/default.nix
     ../../modules/roles/workstation.nix
