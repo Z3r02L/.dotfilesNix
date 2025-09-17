@@ -6,6 +6,7 @@
 
     ../../modules/core/default.nix
     ../../modules/roles/workstation.nix
+    ../../modules/desktop/stylix/stylix.nix
     ../../modules/games/default.nix
     # ../../home-manager/zerg/home.nix
 

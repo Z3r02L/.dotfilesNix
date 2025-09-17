@@ -17,8 +17,8 @@ in
 
   imports = [
     ./packages.nix
+
     ./settings/librewolf.nix
-    
     ./settings/shells/default.nix
   ];
 

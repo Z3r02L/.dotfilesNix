@@ -13,7 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:nix-community/stylix";
+    stylix= {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-colors.url = "github:misterio77/nix-colors";
 
     disko = {
@@ -75,7 +79,7 @@
     };
   };
 
-outputs = { self, nixpkgs, home-manager, stylix, nix-ai-tools, ... }: # nixpkgs-unstable,
+outputs = { self, nixpkgs, home-manager, stylix, nix-colors, nix-ai-tools, ... }: # nixpkgs-stable,
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -119,6 +123,9 @@ outputs = { self, nixpkgs, home-manager, stylix, nix-ai-tools, ... }: # nixpkgs-
           ./modules/development/default.nix
           ./modules/roles/workstation.nix
           ./modules/security/default.nix
+
+          stylix.nixosModules.stylix
+
           # ./modules/core/nix.nix # Оптимизации Nix
         ];
         specialArgs = {
@@ -132,18 +139,20 @@ outputs = { self, nixpkgs, home-manager, stylix, nix-ai-tools, ... }: # nixpkgs-
 
     # Standalone конфигурации home-manager
     homeConfigurations = {
-     zerg = home-manager.lib.homeManagerConfiguration {
-       pkgs = pkgs;
-       modules = [
-         ./home-manager/zerg/home.nix
-       ];
-       extraSpecialArgs = {
-         inherit nix-ai-tools;
-         inherit self;
+      zerg = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
+        modules = [
+
+          ./home-manager/zerg/home.nix
+        ];
+        extraSpecialArgs = {
+          inherit nix-colors;
+          inherit nix-ai-tools;
+          inherit self;
         #  stable = pkgs.stable;
         #  unstable = pkgs.unstable;
-       };
-     };
+        };
+      };
     };
 
     # Development shells
