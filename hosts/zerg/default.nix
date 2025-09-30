@@ -8,6 +8,7 @@
     ../../modules/roles/workstation.nix
     ../../modules/desktop/stylix/stylix.nix
     ../../modules/games/default.nix
+    ../../modules/cli-tui/default.nix
     # ../../home-manager/zerg/home.nix
 
     ./hardware-configuration.nix

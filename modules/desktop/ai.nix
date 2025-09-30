@@ -6,6 +6,7 @@
   environment.systemPackages = with inputs.nix-ai-tools.packages.x86_64-linux; [ # ${pkgs.system}
     qwen-code
     gemini-cli
+    goose-cli
     crush
     claude-code-router
     # ... other tools

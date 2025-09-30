@@ -43,6 +43,7 @@ in
     aiTools.opencode
     aiTools.qwen-code
     aiTools.gemini-cli
+    aiTools.goose-cli
     aiTools.claude-code
     aiTools.claude-code-router
     aiTools.crush
