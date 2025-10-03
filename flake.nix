@@ -5,7 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05"; # /nixos-25.05 = stable
     # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    
+
+    niri-flake.url = "github:sodiboo/niri-flake";
+
     nur.url = "github:nix-community/NUR";
 
     home-manager = {
@@ -79,7 +81,7 @@
     };
   };
 
-outputs = { self, nixpkgs, home-manager, stylix, nix-colors, nix-ai-tools, ... }: # nixpkgs-stable,
+outputs = { self, nixpkgs, home-manager, niri-flake, stylix, nix-colors, nix-ai-tools, ... }@inputs: # nixpkgs-stable,
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -124,11 +126,13 @@ outputs = { self, nixpkgs, home-manager, stylix, nix-colors, nix-ai-tools, ... }
           ./modules/roles/workstation.nix
           ./modules/security/default.nix
 
+          # niri-flake.nixosModules.niri
           stylix.nixosModules.stylix
 
           # ./modules/core/nix.nix # Оптимизации Nix
         ];
         specialArgs = {
+          inherit inputs; # Передаем инпуты в модули
           inherit (nixpkgs) lib;
           inherit system;
           # stable = pkgs.stable;

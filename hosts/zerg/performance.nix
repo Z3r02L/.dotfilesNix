@@ -27,4 +27,6 @@
 
   # Enable zram swap
   zramSwap.enable = true;
+
 }
+

@@ -11,7 +11,9 @@ in
   programs.xdg.enable = true;
 
   packages = with pkgs; [
-    vim                # важный редактор для конфигурации
+    vim
+    neovim # важный редактор для конфигурации
+    helix
     wget
     curl
     git

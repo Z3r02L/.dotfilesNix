@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./zsh.nix
-    ./tmux.nix
-  ];
+  # imports = [
+  #   ./zsh.nix
+  #   ./tmux.nix
+  # ];
 
   # Tools that don't need configuration - just install them
   environment.systemPackages = with pkgs; [
@@ -40,8 +40,7 @@
     # Git tools
     lazygit          # Git TUI
     
-    
-    jazyjj
+    lazyjj
 
     # Networking tools
     nmap
@@ -63,6 +62,8 @@
     # Development containers
     podman           # Container runtime
     podman-compose   # Docker-compose for podman
+
+    stow
   ];
 
   # Enable podman

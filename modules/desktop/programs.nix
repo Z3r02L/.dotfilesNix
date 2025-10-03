@@ -11,6 +11,7 @@ in
     # Text editors
     vim
     neovim
+    helix
     zed-editor-fhs
 
     wget
