@@ -7,6 +7,7 @@
     ../../modules/core/default.nix
     ../../modules/wm/niri.nix
     ../../modules/wm/KDEplasma6.nix
+    ../../modules/wm/hyprland.nix
     ../../modules/desktop/stylix/stylix.nix
     ../../modules/games/default.nix
     ../../modules/cli-tui/default.nix

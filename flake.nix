@@ -125,9 +125,10 @@ outputs = { self, nixpkgs, home-manager, niri-flake, stylix, nix-colors, nix-ai-
           ./modules/development/default.nix
           ./modules/wm/niri.nix
           ./modules/wm/KDEplasma6.nix
+          ./modules/wm/hyprland.nix
           ./modules/security/default.nix
 
-          # niri-flake.nixosModules.niri
+          niri-flake.nixosModules.niri
           stylix.nixosModules.stylix
 
           # ./modules/core/nix.nix # Оптимизации Nix

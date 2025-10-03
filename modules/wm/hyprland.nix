@@ -10,20 +10,13 @@ in
 
   # --- Добавляем KDE Plasma 6 и Hyprland ---
 
-  # 1. Включаем окружение рабочего стола KDE Plasma 6
-  # Plasma 6 уже доступна в стабильной версии NixOS
-  services.desktopManager.plasma6.enable = true;
+  # 2. Включаем VM
+  programs.hyprland.enable = true;
 
   # 3. Включаем менеджер входа SDDM
   services.displayManager.sddm = {
     wayland.enable = true;
     enable = true;
-  };
-
-  # Необходимые порталы для скриншотов, шаринга экрана и т.д.
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # 5. (Важно!) Устанавливаем терминал для Hyprland

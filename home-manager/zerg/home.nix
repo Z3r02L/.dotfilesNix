@@ -25,6 +25,15 @@ in
   # Системная переменная для браузера по умолчанию (пример для xdg)
   # home.sessionVariables.BROWSER = "brave";
   # home.sessionVariables.XDG_DEFAULT_WEB_BROWSER = "brave.desktop";
+  
+  # Переменные окружения для корректной работы Niri с NVIDIA
+  home.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    EGL_PLATFORM = "wayland";
+  };
 
   # Синхронизация файлов
   # home.file.".config/".source = ./config;
