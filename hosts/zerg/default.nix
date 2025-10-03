@@ -5,7 +5,8 @@
     ./performance.nix
 
     ../../modules/core/default.nix
-    ../../modules/roles/workstation.nix
+    ../../modules/wm/niri.nix
+    ../../modules/wm/KDEplasma6.nix
     ../../modules/desktop/stylix/stylix.nix
     ../../modules/games/default.nix
     ../../modules/cli-tui/default.nix

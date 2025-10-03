@@ -123,7 +123,8 @@ outputs = { self, nixpkgs, home-manager, niri-flake, stylix, nix-colors, nix-ai-
           ./modules/core/default.nix
           ./modules/desktop/programs.nix
           ./modules/development/default.nix
-          ./modules/roles/workstation.nix
+          ./modules/wm/niri.nix
+          ./modules/wm/KDEplasma6.nix
           ./modules/security/default.nix
 
           # niri-flake.nixosModules.niri
